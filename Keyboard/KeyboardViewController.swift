@@ -10,7 +10,7 @@ import UIKit
 import AudioToolbox
 
 let metrics: [String:Double] = [
-    "topBanner": 30
+    "topBanner": 150
 ]
 func metric(name: String) -> CGFloat { return CGFloat(metrics[name]!) }
 
@@ -97,7 +97,7 @@ class KeyboardViewController: UIInputViewController {
         NSUserDefaults.standardUserDefaults().registerDefaults([
             kAutoCapitalization: true,
             kPeriodShortcut: true,
-            kKeyboardClicks: false,
+            kKeyboardClicks: true,
             kSmallLowercase: false
         ])
         
@@ -416,6 +416,8 @@ class KeyboardViewController: UIInputViewController {
         else {
             self.heightConstraint?.constant = height
         }
+        
+        self.view.layoutIfNeeded()
     }
     
     func updateAppearances(appearanceIsDark: Bool) {
