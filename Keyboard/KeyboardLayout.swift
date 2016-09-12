@@ -157,7 +157,7 @@ class LayoutConstants: NSObject {
     }
 }
 
-class GlobalColors: NSObject {
+public class GlobalColors: NSObject {
     class var lightModeRegularKey: UIColor { get { return UIColor.whiteColor() }}
     class var darkModeRegularKey: UIColor { get { return UIColor.whiteColor().colorWithAlphaComponent(CGFloat(0.3)) }}
     class var darkModeSolidColorRegularKey: UIColor { get { return UIColor(red: CGFloat(83)/CGFloat(255), green: CGFloat(83)/CGFloat(255), blue: CGFloat(83)/CGFloat(255), alpha: 1) }}

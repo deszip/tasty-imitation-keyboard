@@ -20,7 +20,7 @@ let kPeriodShortcut = "kPeriodShortcut"
 let kKeyboardClicks = "kKeyboardClicks"
 let kSmallLowercase = "kSmallLowercase"
 
-class KeyboardViewController: UIInputViewController {
+public class KeyboardViewController: UIInputViewController {
     
     let backspaceDelay: NSTimeInterval = 0.5
     let backspaceRepeat: NSTimeInterval = 0.07
@@ -114,7 +114,7 @@ class KeyboardViewController: UIInputViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("defaultsChanged:"), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -203,7 +203,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     var lastLayoutBounds: CGRect?
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         if view.bounds == CGRectZero {
             return
         }
@@ -231,7 +231,7 @@ class KeyboardViewController: UIInputViewController {
         self.forwardingView.frame.origin = newOrigin
     }
     
-    override func loadView() {
+    override public func loadView() {
         super.loadView()
         
         if let aBanner = self.createBanner() {
@@ -241,12 +241,12 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         self.bannerView?.hidden = false
         self.keyboardHeight = self.heightForOrientation(self.interfaceOrientation, withTopBanner: true)
     }
     
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    override public func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         self.forwardingView.resetTrackedViews()
         self.shiftStartingState = nil
         self.shiftWasMultitapped = false
@@ -261,7 +261,7 @@ class KeyboardViewController: UIInputViewController {
         self.keyboardHeight = self.heightForOrientation(toInterfaceOrientation, withTopBanner: true)
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+    override public func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         // optimization: ensures quick mode and shift transitions
         if let keyPool = self.layout?.keyPool {
             for view in keyPool {
@@ -384,13 +384,13 @@ class KeyboardViewController: UIInputViewController {
     // POPUP DELAY END //
     /////////////////////
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
     }
 
     // TODO: this is currently not working as intended; only called when selection changed -- iOS bug
-    override func textDidChange(textInput: UITextInput?) {
+    override public func textDidChange(textInput: UITextInput?) {
         self.contextChanged()
     }
     
