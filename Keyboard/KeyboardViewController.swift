@@ -524,7 +524,7 @@ public class KeyboardViewController: UIInputViewController {
         self.backspaceRepeatTimer = nil
     }
     
-    func backspaceDown(sender: KeyboardKey) {
+    public func backspaceDown(sender: KeyboardKey) {
         self.cancelBackspaceTimers()
         
         self.textDocumentProxy.deleteBackward()
@@ -534,7 +534,7 @@ public class KeyboardViewController: UIInputViewController {
         self.backspaceDelayTimer = NSTimer.scheduledTimerWithTimeInterval(backspaceDelay - backspaceRepeat, target: self, selector: Selector("backspaceDelayCallback"), userInfo: nil, repeats: false)
     }
     
-    func backspaceUp(sender: KeyboardKey) {
+    public func backspaceUp(sender: KeyboardKey) {
         self.cancelBackspaceTimers()
     }
     
@@ -678,7 +678,7 @@ public class KeyboardViewController: UIInputViewController {
         }
     }
     
-    func setCapsIfNeeded() -> Bool {
+    public func setCapsIfNeeded() -> Bool {
         if self.shouldAutoCapitalize() {
             switch self.shiftState {
             case .Disabled:
@@ -811,12 +811,12 @@ public class KeyboardViewController: UIInputViewController {
     class var layoutConstants: LayoutConstants.Type { get { return LayoutConstants.self }}
     class var globalColors: GlobalColors.Type { get { return GlobalColors.self }}
     
-    func keyPressed(key: Key) {
+    public func keyPressed(key: Key) {
         self.textDocumentProxy.insertText(key.outputForCase(self.shiftState.uppercase()))
     }
     
     // a banner that sits in the empty space on top of the keyboard
-    func createBanner() -> ExtraView? {
+    public func createBanner() -> ExtraView? {
         // note that dark mode is not yet valid here, so we just put false for clarity
         //return ExtraView(globalColors: self.dynamicType.globalColors, darkMode: false, solidColorMode: self.solidColorMode())
         return nil

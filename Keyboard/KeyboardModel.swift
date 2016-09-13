@@ -152,7 +152,7 @@ public class Key: Hashable {
         self.uppercaseKeyCap = self.uppercaseOutput
     }
     
-    func outputForCase(uppercase: Bool) -> String {
+    public func outputForCase(uppercase: Bool) -> String {
         if uppercase {
             if self.uppercaseOutput != nil {
                 return self.uppercaseOutput!
