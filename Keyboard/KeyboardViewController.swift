@@ -57,7 +57,7 @@ public class KeyboardViewController: UIInputViewController {
     var autoPeriodState: AutoPeriodState = .NoSpace
     var lastCharCountInBeforeContext: Int = 0
     
-    var shiftState: ShiftState {
+    public var shiftState: ShiftState {
         didSet {
             switch shiftState {
             case .Disabled:
@@ -809,7 +809,7 @@ public class KeyboardViewController: UIInputViewController {
     
     class var layoutClass: KeyboardLayout.Type { get { return KeyboardLayout.self }}
     class var layoutConstants: LayoutConstants.Type { get { return LayoutConstants.self }}
-    class var globalColors: GlobalColors.Type { get { return GlobalColors.self }}
+    public class var globalColors: GlobalColors.Type { get { return GlobalColors.self }}
     
     public func keyPressed(key: Key) {
         self.textDocumentProxy.insertText(key.outputForCase(self.shiftState.uppercase()))
