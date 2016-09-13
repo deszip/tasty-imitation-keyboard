@@ -15,7 +15,7 @@ public enum ShiftState {
     case Enabled
     case Locked
     
-    func uppercase() -> Bool {
+    public func uppercase() -> Bool {
         switch self {
         case Disabled:
             return false

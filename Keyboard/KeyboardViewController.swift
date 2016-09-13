@@ -198,7 +198,7 @@ public class KeyboardViewController: UIInputViewController {
         return darkMode
     }
     
-    func solidColorMode() -> Bool {
+    public func solidColorMode() -> Bool {
         return UIAccessibilityIsReduceTransparencyEnabled()
     }
     
