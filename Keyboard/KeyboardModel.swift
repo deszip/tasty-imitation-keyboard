@@ -10,7 +10,7 @@ import Foundation
 
 var counter = 0
 
-enum ShiftState {
+public enum ShiftState {
     case Disabled
     case Enabled
     case Locked
