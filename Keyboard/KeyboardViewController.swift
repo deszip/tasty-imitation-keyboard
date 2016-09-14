@@ -88,11 +88,6 @@ public class KeyboardViewController: UIInputViewController {
         }
     }
     
-    // TODO: why does the app crash if this isn't here?
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
-    }
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         NSUserDefaults.standardUserDefaults().registerDefaults([
             kAutoCapitalization: true,
@@ -108,14 +103,25 @@ public class KeyboardViewController: UIInputViewController {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.forwardingView = ForwardingView(frame: CGRectZero)
-        self.view.addSubview(self.forwardingView)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("defaultsChanged:"), name: NSUserDefaultsDidChangeNotification, object: nil)
+        registerForNotifications()
     }
     
     required public init?(coder: NSCoder) {
-        fatalError("NSCoding not supported")
+        NSUserDefaults.standardUserDefaults().registerDefaults([
+            kAutoCapitalization: true,
+            kPeriodShortcut: true,
+            kKeyboardClicks: true,
+            kSmallLowercase: false
+        ])
+        
+        self.keyboard = defaultKeyboard()
+        
+        self.shiftState = .Disabled
+        self.currentMode = 0
+        
+        super.init(coder: coder)
+        
+        registerForNotifications()
     }
     
     deinit {
@@ -123,6 +129,10 @@ public class KeyboardViewController: UIInputViewController {
         backspaceRepeatTimer?.invalidate()
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    private func registerForNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KeyboardViewController.defaultsChanged(_:)), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
     func defaultsChanged(notification: NSNotification) {
@@ -233,6 +243,9 @@ public class KeyboardViewController: UIInputViewController {
     
     override public func loadView() {
         super.loadView()
+        
+        self.forwardingView = ForwardingView(frame: CGRectZero)
+        self.view.addSubview(self.forwardingView)
         
         if let aBanner = self.createBanner() {
             aBanner.hidden = true
