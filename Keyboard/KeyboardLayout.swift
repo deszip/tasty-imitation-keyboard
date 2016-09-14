@@ -158,24 +158,24 @@ class LayoutConstants: NSObject {
 }
 
 public class GlobalColors: NSObject {
-    class var lightModeRegularKey: UIColor { get { return UIColor.whiteColor() }}
-    class var darkModeRegularKey: UIColor { get { return UIColor.whiteColor().colorWithAlphaComponent(CGFloat(0.3)) }}
-    class var darkModeSolidColorRegularKey: UIColor { get { return UIColor(red: CGFloat(83)/CGFloat(255), green: CGFloat(83)/CGFloat(255), blue: CGFloat(83)/CGFloat(255), alpha: 1) }}
-    class var lightModeSpecialKey: UIColor { get { return GlobalColors.lightModeSolidColorSpecialKey }}
-    class var lightModeSolidColorSpecialKey: UIColor { get { return UIColor(red: CGFloat(177)/CGFloat(255), green: CGFloat(177)/CGFloat(255), blue: CGFloat(177)/CGFloat(255), alpha: 1) }}
-    class var darkModeSpecialKey: UIColor { get { return UIColor.grayColor().colorWithAlphaComponent(CGFloat(0.3)) }}
-    class var darkModeSolidColorSpecialKey: UIColor { get { return UIColor(red: CGFloat(45)/CGFloat(255), green: CGFloat(45)/CGFloat(255), blue: CGFloat(45)/CGFloat(255), alpha: 1) }}
-    class var darkModeShiftKeyDown: UIColor { get { return UIColor(red: CGFloat(214)/CGFloat(255), green: CGFloat(220)/CGFloat(255), blue: CGFloat(208)/CGFloat(255), alpha: 1) }}
-    class var lightModePopup: UIColor { get { return GlobalColors.lightModeRegularKey }}
-    class var darkModePopup: UIColor { get { return UIColor.grayColor() }}
-    class var darkModeSolidColorPopup: UIColor { get { return GlobalColors.darkModeSolidColorRegularKey }}
+    class var lightModeRegularKey: UIColor { get {              return UIColor.whiteColor() }}
+    class var darkModeRegularKey: UIColor { get {               return UIColor.whiteColor().colorWithAlphaComponent(CGFloat(0.3)) }}
+    class var darkModeSolidColorRegularKey: UIColor { get {     return UIColor(hexRGBA: 0x535353FF) }}
+    class var lightModeSpecialKey: UIColor { get {              return GlobalColors.lightModeSolidColorSpecialKey }}
+    class var lightModeSolidColorSpecialKey: UIColor { get {    return UIColor(hexRGBA: 0xB1B1B1FF) }}
+    class var darkModeSpecialKey: UIColor { get {               return UIColor.grayColor().colorWithAlphaComponent(CGFloat(0.3)) }}
+    class var darkModeSolidColorSpecialKey: UIColor { get {     return UIColor(hexRGBA: 0x2D2D2DFF) }}
+    class var darkModeShiftKeyDown: UIColor { get {             return UIColor(hexRGBA: 0xD6DCD0FF) }}
+    class var lightModePopup: UIColor { get {                   return GlobalColors.lightModeRegularKey }}
+    class var darkModePopup: UIColor { get {                    return UIColor.grayColor() }}
+    class var darkModeSolidColorPopup: UIColor { get {          return GlobalColors.darkModeSolidColorRegularKey }}
     
-    class var lightModeUnderColor: UIColor { get { return UIColor(hue: (220/360.0), saturation: 0.04, brightness: 0.56, alpha: 1) }}
-    class var darkModeUnderColor: UIColor { get { return UIColor(red: CGFloat(38.6)/CGFloat(255), green: CGFloat(18)/CGFloat(255), blue: CGFloat(39.3)/CGFloat(255), alpha: 0.4) }}
-    class var lightModeTextColor: UIColor { get { return UIColor.blackColor() }}
-    class var darkModeTextColor: UIColor { get { return UIColor.whiteColor() }}
-    class var lightModeBorderColor: UIColor { get { return UIColor(hue: (214/360.0), saturation: 0.04, brightness: 0.65, alpha: 1.0) }}
-    class var darkModeBorderColor: UIColor { get { return UIColor.clearColor() }}
+    class var lightModeUnderColor: UIColor { get {              return UIColor(hexRGBA: 0x8A8D93FF) }}
+    class var darkModeUnderColor: UIColor { get {               return UIColor(hexRGBA: 0x26122766 ) }}
+    class var lightModeTextColor: UIColor { get {               return UIColor.blackColor() }}
+    class var darkModeTextColor: UIColor { get {                return UIColor.whiteColor() }}
+    class var lightModeBorderColor: UIColor { get {             return UIColor(hexRGBA: 0xA2A5A9FF) }}
+    class var darkModeBorderColor: UIColor { get {              return UIColor.clearColor() }}
     
     class func regularKey(darkMode: Bool, solidColorMode: Bool) -> UIColor {
         if darkMode {

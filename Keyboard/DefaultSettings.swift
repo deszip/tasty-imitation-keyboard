@@ -150,7 +150,8 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     func updateAppearance(dark: Bool) {
         if dark {
             self.effectsView?.effect
-            let blueColor = UIColor(red: 135/CGFloat(255), green: 206/CGFloat(255), blue: 250/CGFloat(255), alpha: 1)
+            //let blueColor = UIColor(red: 135/CGFloat(255), green: 206/CGFloat(255), blue: 250/CGFloat(255), alpha: 1)
+            let blueColor = UIColor(hexRGBA: 0x87CEFAFF)
             self.pixelLine?.backgroundColor = blueColor.colorWithAlphaComponent(CGFloat(0.5))
             self.backButton?.setTitleColor(blueColor, forState: UIControlState.Normal)
             self.settingsLabel?.textColor = UIColor.whiteColor()
@@ -166,7 +167,8 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
             }
         }
         else {
-            let blueColor = UIColor(red: 0/CGFloat(255), green: 122/CGFloat(255), blue: 255/CGFloat(255), alpha: 1)
+            //let blueColor = UIColor(red: 0/CGFloat(255), green: 122/CGFloat(255), blue: 255/CGFloat(255), alpha: 1)
+            let blueColor = UIColor(hexRGBA: 0x007AFFFF)
             self.pixelLine?.backgroundColor = blueColor.colorWithAlphaComponent(CGFloat(0.5))
             self.backButton?.setTitleColor(blueColor, forState: UIControlState.Normal)
             self.settingsLabel?.textColor = UIColor.grayColor()
