@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-struct Metrics {
+public struct Metrics {
     let TopPanelHeight: CGFloat
 }
 
