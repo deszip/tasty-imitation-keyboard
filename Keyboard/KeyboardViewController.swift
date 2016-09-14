@@ -10,7 +10,11 @@ import UIKit
 import AudioToolbox
 
 public struct Metrics {
-    public let TopPanelHeight: CGFloat
+    public let topPanelHeight: CGFloat
+    
+    public init(topPanelHeight: CGFloat) {
+        self.topPanelHeight = topPanelHeight
+    }
 }
 
 // TODO: move this somewhere else and localize
@@ -21,7 +25,7 @@ let kSmallLowercase = "kSmallLowercase"
 
 public class KeyboardViewController: UIInputViewController {
     
-    public var metrics: Metrics = Metrics(TopPanelHeight: 44.0)
+    public var metrics: Metrics = Metrics(topPanelHeight: 44.0)
     
     let backspaceDelay: NSTimeInterval = 0.5
     let backspaceRepeat: NSTimeInterval = 0.07
@@ -236,7 +240,7 @@ public class KeyboardViewController: UIInputViewController {
             self.setupKeys()
         }
         
-        self.bannerView?.frame = CGRectMake(0, 0, self.view.bounds.width, metrics.TopPanelHeight)
+        self.bannerView?.frame = CGRectMake(0, 0, self.view.bounds.width, metrics.topPanelHeight)
         
         let newOrigin = CGPointMake(0, self.view.bounds.height - self.forwardingView.bounds.height)
         self.forwardingView.frame.origin = newOrigin
@@ -291,7 +295,7 @@ public class KeyboardViewController: UIInputViewController {
         let actualScreenWidth = (UIScreen.mainScreen().nativeBounds.size.width / UIScreen.mainScreen().nativeScale)
         let canonicalPortraitHeight = (isPad ? CGFloat(264) : CGFloat(orientation.isPortrait && actualScreenWidth >= 400 ? 226 : 216))
         let canonicalLandscapeHeight = (isPad ? CGFloat(352) : CGFloat(162))
-        let topBannerHeight = (withTopBanner ? metrics.TopPanelHeight : 0)
+        let topBannerHeight = (withTopBanner ? metrics.topPanelHeight : 0)
         
         return CGFloat(orientation.isPortrait ? canonicalPortraitHeight + topBannerHeight : canonicalLandscapeHeight + topBannerHeight)
     }
