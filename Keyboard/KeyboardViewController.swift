@@ -21,7 +21,7 @@ let kSmallLowercase = "kSmallLowercase"
 
 public class KeyboardViewController: UIInputViewController {
     
-    var metrics: Metrics = Metrics(TopPanelHeight: 44.0)
+    public var metrics: Metrics = Metrics(TopPanelHeight: 44.0)
     
     let backspaceDelay: NSTimeInterval = 0.5
     let backspaceRepeat: NSTimeInterval = 0.07
