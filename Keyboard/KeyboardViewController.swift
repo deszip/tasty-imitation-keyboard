@@ -10,7 +10,7 @@ import UIKit
 import AudioToolbox
 
 public struct Metrics {
-    let TopPanelHeight: CGFloat
+    public let TopPanelHeight: CGFloat
 }
 
 // TODO: move this somewhere else and localize
