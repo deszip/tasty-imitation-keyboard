@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ExtraView: UIView {
+open class ExtraView: UIView {
     
     var globalColors: GlobalColors.Type?
     var darkMode: Bool
@@ -19,7 +19,7 @@ public class ExtraView: UIView {
         self.darkMode = darkMode
         self.solidColorMode = solidColorMode
         
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     required public init?(coder aDecoder: NSCoder) {
